@@ -1,0 +1,19 @@
+{
+    "name": "muffinweb/payguruapi",
+    "description": "Payguru SMS API for PHP",
+    "type": "library",
+    "license": "Unlicensed",
+    "authors": [
+        {
+            "name": "Ugur Cengiz",
+            "email": "ugurcengiz@mail.com.tr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+	"autoloader": {
+		"psr-4": {
+			"Muffinweb\\": "src/"
+		}
+	}
+}

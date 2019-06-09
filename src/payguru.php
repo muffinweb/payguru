@@ -172,6 +172,16 @@ class PayguruApi
 
 		echo '<pre>', print_r((object) json_decode($response));
 	}
+
+	/**
+	 * Test Congifure is set 
+	 *
+	 * @return Boolean
+	 */
+	public function isEnable()
+	{
+		return $this->otherMethodsEnabled;
+	}
 }
 
 
