@@ -196,6 +196,13 @@ class Payguru
 		        'failureUrl' => $this->failureUrl,
 		        'key' =>  $keyValue
 		    ];
+
+		if($this->hasTrialPeriod){
+			$args = array_merge($args, [
+				'trialPeriodDay' => $this->trialPeriodDay
+			]);
+		}
+		
 		dd($args);
 	}
 }
