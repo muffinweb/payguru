@@ -10,7 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-	"autoloader": {
+	"autoload": {
 		"psr-4": {
 			"Muffinweb\\": "src/"
 		}
