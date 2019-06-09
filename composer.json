@@ -2,7 +2,7 @@
     "name": "muffinweb/payguruapi",
     "description": "Payguru SMS API for PHP",
     "type": "library",
-    "license": "Unlicensed",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ugur Cengiz",
