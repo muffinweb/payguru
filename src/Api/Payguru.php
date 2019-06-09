@@ -8,9 +8,9 @@
  * @link github.com/muffinweb/payguru-phpapi
  */
 
-namespace Muffinweb;
+namespace Muffinweb\Api;
 
-class PayguruApi
+class Payguru
 {
 	/** Service Host|Url*/
 	public $paymentUrl;
@@ -180,7 +180,12 @@ class PayguruApi
 	 */
 	public function isEnable()
 	{
-		return $this->otherMethodsEnabled;
+		return ($this->otherMethodsEnabled ) ? 'true':'false';
+	}
+
+	public function activate()
+	{
+		echo 'Activate';
 	}
 }
 
