@@ -1,5 +1,5 @@
 {
-    "name": "muffinweb/payguruapi",
+    "name": "muffinweb/payguru",
     "description": "Payguru SMS API for PHP",
     "type": "library",
     "license": "MIT",

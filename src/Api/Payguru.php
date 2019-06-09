@@ -132,9 +132,11 @@ class Payguru
 	 */
 	public function hasTrialPeriod(Int $period)
 	{
-		$this->hasTrialPeriod = true;
-		$this->trialPeriodDay = $period;
-		return $this;
+		if($this->otherMethodsEnabled){
+			$this->hasTrialPeriod = true;
+			$this->trialPeriodDay = $period;
+			return $this;
+		}
 	}
 
 
@@ -144,6 +146,8 @@ class Payguru
 	 */
 	public function tryPayment() {
 
+		$keyValue = md5($this->merchantId . $this->serviceId . $this->referenceCode . $this->item . $this->price . $this->successUrl . $this->failureUrl. $this->$secretKey);
+
 		$args = [
 		        'merchantId' => $this->merchantId,
 		        'serviceId' => $this->serviceId,
@@ -152,7 +156,7 @@ class Payguru
 		        'referenceCode' => $this->referenceCode,
 		        'successUrl' => $this->successUrl,
 		        'failureUrl' => $this->failureUrl,
-		        'key' =>  md5("$this->merchantId$this->serviceId$this->referenceCode$this->item$this->price$this->successUrl$this->failureUrl$this->$secretKey")
+		        'key' =>  $keyValue
 		    ];
 
    		if($this->hasTrialPeriod) {
@@ -170,22 +174,29 @@ class Payguru
 
 		$response = curl_exec($curl);
 
-		echo '<pre>', print_r((object) json_decode($response));
+		//Show result
+		if(function_exists('dd')){
+			dd(json_decode($response));
+		} else {
+			echo '<pre>', print_r((object) json_decode($response));
+		}
 	}
 
-	/**
-	 * Test Congifure is set 
-	 *
-	 * @return Boolean
-	 */
-	public function isEnable()
+	public function preview()
 	{
-		return ($this->otherMethodsEnabled ) ? 'true':'false';
-	}
+		$keyValue = md5($this->merchantId . $this->serviceId . $this->referenceCode . $this->item . $this->price . $this->successUrl . $this->failureUrl. $this->$secretKey);
 
-	public function activate()
-	{
-		echo 'Activate';
+		$args = [
+		        'merchantId' => $this->merchantId,
+		        'serviceId' => $this->serviceId,
+		        'item' => $this->item,
+		        'price' => $this->price,
+		        'referenceCode' => $this->referenceCode,
+		        'successUrl' => $this->successUrl,
+		        'failureUrl' => $this->failureUrl,
+		        'key' =>  $keyValue
+		    ];
+		dd($args);
 	}
 }
 
