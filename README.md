@@ -3,7 +3,9 @@ Php API for Payguru mobile
 
 # Sample
 ```
-$payguru = new PayguruApi([
+use Muffinweb\Api\Payguru;
+
+$payguru = new Payguru([
 	'paymentUrl' => 'https://payguru.com/token',
 	'merchantId' => 4255,
 	'serviceId' => 6354,
