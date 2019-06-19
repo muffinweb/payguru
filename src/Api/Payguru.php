@@ -27,6 +27,9 @@ class Payguru
 	/** Product Title */
 	public $item;
 
+	/** Product Reference Code Prefix */
+	public $referencePrefix = '';
+
 	/** Product Reference Code */
 	public $referenceCode;
 
@@ -94,6 +97,20 @@ class Payguru
 		}
 		die('Productname required');
 		return false;
+	}
+
+	/**
+	 * Set Prefix
+	 *
+	 * @param $prefix
+	 */
+	public function prefix($prefix = false) {
+		if($prefix) {
+			$this->referencePrefix = $prefix;
+		} else{
+			die("Product Prefix Required");
+			return false;
+		}
 	}
 
 
