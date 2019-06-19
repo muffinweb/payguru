@@ -107,6 +107,7 @@ class Payguru
 	public function prefix($prefix = false) {
 		if($prefix) {
 			$this->referencePrefix = $prefix;
+			return $this;
 		} else{
 			die("Product Prefix Required");
 			return false;
