@@ -16,5 +16,5 @@ $payguru = new Payguru([
 ```
 
 ```
-$payguru->item('1 AYLIK ABONELIK')->reference('01A552')->price(30)->hasTrialPeriod(29)->tryPayment();
+$payguru->item('1 AYLIK ABONELIK')->prefix('brand_')->reference(md5(time()))->price(30)->hasTrialPeriod(29)->tryPayment();
 ```
